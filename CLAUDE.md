@@ -50,4 +50,8 @@ For every video edit, first inspect and use all 11 attached repos: claude-shorts
 
 - **claude-video-effects gets priority.** Read its SKILL.md and scripts before building any effect, and use its effects heavily (face-tracked effects, zooms, overlays, transitions) on talking-head footage.
 - No background music unless asked. Keep the speaker's original colours (only a faithful HDR→SDR conversion).
-- Deliver iPhone-ready MP4 (1080×1920, H.264 + AAC, yuv420p, faststart), plus a 15 s preview when asked.
+- **Every time, deliver the finished video as an iPhone-downloadable MP4**, sent as a file attachment (never HTML, code or a preview link instead):
+  - 1080×1920 (9:16), 30 fps, H.264 High (`avc1` tag) + AAC 192k 48 kHz, yuv420p, BT.709, `-movflags +faststart`.
+  - Keep it small enough to download on a phone (CRF ~21, aim under ~50 MB per minute).
+  - Verify with ffprobe and a full decode before sending, and tell the user: tap the file → Share → Save Video.
+  - Also send a 15 s preview when asked.
