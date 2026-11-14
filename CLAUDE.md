@@ -43,3 +43,11 @@ Pipeline stores intermediate files in `$SHORTS_TMP` (defaults to `/tmp/claude-sh
 - Python 3.10+ with faster-whisper, mediapipe, numpy, opencv-python
 - Node.js 18+ with remotion, @remotion/captions, zod
 - NVIDIA GPU recommended (NVENC encoding, CUDA transcription)
+
+## Video edit rule: use ALL repos
+
+For every video edit, first inspect and use all 11 attached repos: claude-shorts, whisper, hyperframes, ffmpeg-skill, claude-video-effects, motion-skills, threejs-skills, motionclone, ghost-editor, yt-dlp, awesome-claude-video-skills. Do not skip a repo without checking what it offers; say in the delivery note which repos were used and why any did not fit.
+
+- **claude-video-effects gets priority.** Read its SKILL.md and scripts before building any effect, and use its effects heavily (face-tracked effects, zooms, overlays, transitions) on talking-head footage.
+- No background music unless asked. Keep the speaker's original colours (only a faithful HDR→SDR conversion).
+- Deliver iPhone-ready MP4 (1080×1920, H.264 + AAC, yuv420p, faststart), plus a 15 s preview when asked.
