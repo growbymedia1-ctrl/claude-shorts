@@ -49,7 +49,7 @@ Pipeline stores intermediate files in `$SHORTS_TMP` (defaults to `/tmp/claude-sh
 For every video edit, first inspect and use all 11 attached repos: claude-shorts, whisper, hyperframes, ffmpeg-skill, claude-video-effects, motion-skills, threejs-skills, motionclone, ghost-editor, yt-dlp, awesome-claude-video-skills. Do not skip a repo without checking what it offers; say in the delivery note which repos were used and why any did not fit.
 
 - **claude-video-effects gets priority.** Read its SKILL.md and scripts before building any effect, and use its effects heavily (face-tracked effects, zooms, overlays, transitions) on talking-head footage.
-- No background music unless asked. Keep the speaker's original colours (only a faithful HDR→SDR conversion).
+- No background music and no sound effects unless the user asks. Keep only the speaker's own voice. Keep the speaker's original colours (only a faithful HDR→SDR conversion).
 - **Every time, deliver the finished video as an iPhone-downloadable MP4**, sent as a file attachment (never HTML, code or a preview link instead):
   - 1080×1920 (9:16), 30 fps, H.264 High (`avc1` tag) + AAC 192k 48 kHz, yuv420p, BT.709, `-movflags +faststart`.
   - Keep it small enough to download on a phone (CRF ~21, aim under ~50 MB per minute).
