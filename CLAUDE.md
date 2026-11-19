@@ -54,4 +54,6 @@ For every video edit, first inspect and use all 11 attached repos: claude-shorts
   - 1080×1920 (9:16), 30 fps, H.264 High (`avc1` tag) + AAC 192k 48 kHz, yuv420p, BT.709, `-movflags +faststart`.
   - Keep it small enough to download on a phone (CRF ~21, aim under ~50 MB per minute).
   - Verify with ffprobe and a full decode before sending, and tell the user: tap the file → Share → Save Video.
-  - Also send a 15 s preview when asked.
+  - Send only the finished full video. No sample or preview clips unless the user asks.
+- **Voice must stay crystal clear, like the original recording.** Never run denoise, de-esser, compressor or EQ on the speaker's voice, and avoid repeated AAC re-encodes. Cut the original audio losslessly (WAV), time-stretch with `rubberband` (formant preserved) only if sped up, normalise once to -14 LUFS, and mix it as a separate audio track so the final AAC encode happens once.
+- **Colour must look normal and natural.** For iPhone HLG/HDR footage use the neutral conversion `zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=reinhard:desat=0,zscale=t=bt709:m=bt709:r=tv`. No saturation boosts, no graded or colour-changing effects (moody, swipe, timeline, spotlight). If `claude-video-effects/fx.py` re-encodes, fix its BT.601 matrix with `zscale=matrixin=470bg:matrix=709`.
